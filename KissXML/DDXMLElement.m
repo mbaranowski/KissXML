@@ -153,17 +153,17 @@
 			
 			if (uri == nil)
 			{
-				match = xmlStrEqual(child->name, xmlName);
+				match = xmlStrEqual(child->name, xmlName) == 1;
 			}
 			else
 			{
-				BOOL nameMatch      = xmlStrEqual(child->name, xmlName);
-				BOOL localNameMatch = xmlStrEqual(child->name, xmlLocalName);
+				BOOL nameMatch      = xmlStrEqual(child->name, xmlName)==1;
+				BOOL localNameMatch = xmlStrEqual(child->name, xmlLocalName)==1;
 				
 				BOOL uriMatch = NO;
 				if (child->ns)
 				{
-					uriMatch = xmlStrEqual(child->ns->href, xmlUri);
+					uriMatch = xmlStrEqual(child->ns->href, xmlUri)==1;
 				}
 				
 				if (hasPrefix)
